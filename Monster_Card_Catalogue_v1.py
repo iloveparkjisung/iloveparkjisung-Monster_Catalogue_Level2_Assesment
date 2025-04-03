@@ -96,11 +96,12 @@ def view_monsters(): #this shows us what is currently inside the dictionary
 def search_catalogue():
     print("Here are the existing NEOZONE monster's names with stats and are available to be viewed.\n Which NEOZONE monster would you like to look at?\n")
     for name in catalogue:
-        print(name)
-    ask =  input("\nWhich monster would you like to look at today? ").capitalize()
+        print(name) #prints out the names of available monsters the user can search for
+
+    ask =  input("\nWhich monster would you like to look at today? ").capitalize() 
     if ask in catalogue:
         print(f"\n{ask}'s Stats:")
-        for stats, stats_number in catalogue[ask].items:
+        for stats, stats_number in catalogue[ask].items():
             print(f"{stats} : {stats_number}")
     else:
         print("Combo not found")
