@@ -108,7 +108,9 @@ def search_catalogue():
 
 
 def make_monster():
-    print("hi")
+    print("Create new NEOZONE monsters and customize their stats!")
+    name = input("Enter the name of the NEOZONE monster: ")
+    items = {}
 def delete_monster():
     print("hi")
 
