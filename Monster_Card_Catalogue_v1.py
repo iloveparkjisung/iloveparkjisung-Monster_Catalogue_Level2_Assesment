@@ -83,8 +83,8 @@ def main_catalogue(): #this will be our main interface where we can navigate and
             print("That's not right. Please input the right numbers, Try Again.") #this makes sure that the user does not input an invalid option
         
 
-def view_monsters():
-    print("Here are the existing monster's names with stats and are available to be viewed.")
+def view_monsters(): #this shows us what is currently inside the dictionary
+    print("Here are the existing NEOZONE monster's names with stats and are available to be viewed.")
     for monster_name, stats in catalogue.items():
         print(f"\n\n{monster_name}'s Stats:")
         for stats, stats_number in stats.items():
@@ -94,7 +94,16 @@ def view_monsters():
 
 
 def search_catalogue():
-    print("hi")
+    print("Here are the existing NEOZONE monster's names with stats and are available to be viewed.\n Which NEOZONE monster would you like to look at?\n")
+    for name in catalogue:
+        print(name)
+    ask =  input("\nWhich monster would you like to look at today? ").capitalize()
+    if ask in catalogue:
+        print(f"\n{ask}'s Stats:")
+        for stats, stats_number in catalogue[ask].items:
+            print(f"{stats} : {stats_number}")
+    else:
+        print("Combo not found")
 
 
 def make_monster():
