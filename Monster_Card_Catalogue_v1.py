@@ -63,9 +63,9 @@ catalogue = {
 }
 
 def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
-    print ("=== NEOZONE: THE Monster Game Catalogue ===\n") #the welcoming message the user is receiving
+    print ("=== NEOZONE: THE Monster Game Catalogue ===") #the welcoming message the user is receiving
     while True:
-        print("Welcome to NEOZONE: THE Monster Game Catalogue\n What would you like to do today?\n\n== Input the number to navigate ==") #this is the user's instruction
+        print("\nWelcome to NEOZONE: THE Monster Game Catalogue\n What would you like to do today?\n\n== Input the number to navigate ==") #this is the user's instruction
         print("1 : View available NEOZONE monsters and stats!!\n2 : Look up a specific NEOZONE monsters\n3 : Make your own monster and stats\n4 : Delete a NEOZONE monster\n5 : QUIT ") #the options the user can input
         choice = input("Enter your choice: ")
         if choice == '1': #if the user chooses 1 - 4 it will do the fuctions which has specific tasks assigned using the def function.
@@ -86,9 +86,9 @@ def main_catalogue(): #this will be our main interface where we can navigate and
 def view_monsters():
     print("Here are the existing monster's names with stats and are available to be viewed.")
     for monster_name, stats in catalogue.items():
-        print(f"{monster_name}'s Stats:")
-        for stats, stats_number in details.items():
-            print(f"{statsr}: {stats_number}") 
+        print(f"\n\n{monster_name}'s Stats:")
+        for stats, stats_number in stats.items():
+            print(f"{stats}: {stats_number}") 
 
 
 
