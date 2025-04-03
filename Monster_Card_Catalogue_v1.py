@@ -76,7 +76,7 @@ def main_catalogue(): #this will be our main interface where we can navigate and
             make_monster()
         elif choice == '4':
             delete_monster()
-        elif choice = '5':
+        elif choice == '5':
             print("Thank you for using NEOZONE: THE Monster Game Catalogue") 
             break #using break quits the code
         else:
@@ -84,9 +84,20 @@ def main_catalogue(): #this will be our main interface where we can navigate and
         
 
 def view_monsters():
+    print("Here are the existing monster's names with stats and are available to be viewed.")
+
+
 
 def search_catalogue():
+    print("hi")
+    for monster_name, stats in catalogue.items():
+        print(f"{monster_name}'s Stats:")
+        for stats, stats_number in details.items():
+            print(f"{statsr}: {stats_number}") 
 
 def make_monster():
-
+    print("hi")
 def delete_monster():
+    print("hi")
+
+main_catalogue()
