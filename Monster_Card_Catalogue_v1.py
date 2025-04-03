@@ -66,4 +66,7 @@ def main_catalogue(): #this will be our main interface where we can navigate and
     print ("=== NEOZONE: THE Monster Game ===\n\n") #the welcoming message the user is receiving
     while True:
         print("Welcome to NEOZONE: THE Monster Game\n What would you like to do today?\n== Input the number to navigate ==") #this is the user's instruction
-        print("1 : View available NEOZONE monsters and stats!!\n2 : Look up a specific NEOZONE monsters\n3 : Make your own character and stats") #the options the user can input
+        print("1 : View available NEOZONE monsters and stats!!\n2 : Look up a specific NEOZONE monsters\n3 : Make your own monster and stats\n4 : Delete a NEOZONE nonster\n5 : QUIT ") #the options the user can input
+        choice = input("Enter your choice: ")
+
+main_catalogue()
