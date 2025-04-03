@@ -85,15 +85,17 @@ def main_catalogue(): #this will be our main interface where we can navigate and
 
 def view_monsters():
     print("Here are the existing monster's names with stats and are available to be viewed.")
+    for monster_name, stats in catalogue.items():
+        print(f"{monster_name}'s Stats:")
+        for stats, stats_number in details.items():
+            print(f"{statsr}: {stats_number}") 
+
 
 
 
 def search_catalogue():
     print("hi")
-    for monster_name, stats in catalogue.items():
-        print(f"{monster_name}'s Stats:")
-        for stats, stats_number in details.items():
-            print(f"{statsr}: {stats_number}") 
+
 
 def make_monster():
     print("hi")
