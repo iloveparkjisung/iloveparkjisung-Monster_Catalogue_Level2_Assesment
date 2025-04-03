@@ -68,7 +68,7 @@ def main_catalogue(): #this will be our main interface where we can navigate and
         print("Welcome to NEOZONE: THE Monster Game Catalogue\n What would you like to do today?\n\n== Input the number to navigate ==") #this is the user's instruction
         print("1 : View available NEOZONE monsters and stats!!\n2 : Look up a specific NEOZONE monsters\n3 : Make your own monster and stats\n4 : Delete a NEOZONE monster\n5 : QUIT ") #the options the user can input
         choice = input("Enter your choice: ")
-        if choice == '1':
+        if choice == '1': #if the user chooses 1 - 4 it will do the fuctions which has specific tasks assigned using the def function.
             view_monsters()
         elif choice == '2':
             search_catalogue()
@@ -77,10 +77,10 @@ def main_catalogue(): #this will be our main interface where we can navigate and
         elif choice == '4':
             delete_monster()
         elif choice = '5':
-            print("Thank you for using NEOZONE: THE Monster Game Catalogue")
-            break
+            print("Thank you for using NEOZONE: THE Monster Game Catalogue") 
+            break #using break quits the code
         else:
-            print("That's not right. Please input the right numbers, Try Again.")
+            print("That's not right. Please input the right numbers, Try Again.") #this makes sure that the user does not input an invalid option
         
 
 def view_monsters():
