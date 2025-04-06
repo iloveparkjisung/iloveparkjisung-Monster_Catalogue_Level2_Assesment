@@ -86,12 +86,12 @@ def main_catalogue(): #this will be our main interface where we can navigate and
 
 
 def view_monsters(): #this shows us what is currently inside the dictionary
-    catalouge_text = "Existing NEOZONE monsters:"
+    catalogue = "Existing NEOZONE monsters:"
     for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
-        catalouge_text += f"\n\n{monster_name}'s Stats:" #while this would print it
+        catalogue += f"\n\n{monster_name}'s Stats:" #while this would print it
         for stats, stats_number in stats.items(): #this would print the stats
-            catalouge_text += f"{stats}: {stats_number}"
-    eg.msgbox(catalouge_text, title="Catalouge")
+            catalogue += f"{stats}: {stats_number}"
+    eg.msgbox(catalogue, title="catalogue")
 
 
 
@@ -120,15 +120,15 @@ def make_monster():
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
         items[name] = stat
-    catalouge [name] = items
+    catalogue [name] = items
     print(f"New NEOZONE monster '{name} added.")
 
 
 
 def delete_monster():
     name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalouge.keys()))
-    if name in catalouge:
-        del catalouge[name]
+    if name in catalogue:
+        del catalogue[name]
         eg.masbox(f"NEOZONE monster '{name}' was deleted.", "SUCCESS")
 
 main_catalogue()
