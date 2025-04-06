@@ -105,7 +105,7 @@ def search_catalogue(): #in this def functions the user can search up certain mo
     else:
         print("Combo not found") #value error
 
-
+#i would need to fix it
 def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ")
