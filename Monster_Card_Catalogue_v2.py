@@ -126,7 +126,7 @@ def make_monster():
 
 
 def delete_monster():
-    name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalouge.keys()))
+    name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalogue.keys()))
     if name in catalogue:
         del catalogue[name]
         eg.masbox(f"NEOZONE monster '{name}' was deleted.", "SUCCESS")
