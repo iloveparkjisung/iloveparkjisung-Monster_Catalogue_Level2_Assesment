@@ -84,6 +84,7 @@ def main_catalogue(): #this will be our main interface where we can navigate and
             break #using break quits the code
         
 
+
 def view_monsters(): #this shows us what is currently inside the dictionary
     catalouge_text = "Existing NEOZONE monsters:"
     for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
@@ -95,5 +96,41 @@ def view_monsters(): #this shows us what is currently inside the dictionary
 
 
 
+def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
+    monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalouge.keys())) 
+#this asks the user what type of NEOZONE minster they would like to see and capitalizes it so the program can figure out what to find
+    ask =  input("\nWhich monster would you like to look at today? ").capitalize()  
+    if monster:
+        monster_txt += f"\n{ask}'s Stats:"
+        for stats, stats_number in catalogue[ask].items():#thsi prints the stats of th emonster the monster the user asked for
+            monster_txt += f"{stats} : {stats_number}"
+        eg.msgbox(monster_txt, title="NEOZONE monster details :")
 
+
+
+def make_monster():
+    print("Create new NEOZONE monsters and customize their stats!")
+    name = input("Enter the name of the NEOZONE monster: ")
+    items = {} # we use an empty dictionary so we can put new things into it
+    for i in range (1,4):
+        while True:
+            try:
+                stat = float(input(f"Choose a {stat} for " , name ,":"))
+                break
+            except ValueError:
+                print("Invalid stat number. Please enter a numeric value")
+        items[name] = stat
+    catalouge [name] = items
+    print(f"New NEOZONE monster '{name} added.")
+
+
+
+def delete_monster():
+    name = eg.choicebox("Delete a NEOZONE m")
+    name = input("Enter the name of the NEOZONE monster you would want to delete: ").capitalize()
+    if name in catalouge:
+        del catalouge[name]
+        print(f"NEOZONE monster '{name}' was deleted.")
+    else:
+        print("NEOZONE monster not found.")
 main_catalogue()
