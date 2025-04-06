@@ -84,7 +84,7 @@ def main_catalogue(): #this will be our main interface where we can navigate and
             break #using break quits the code
         
 
-
+#fix the way it prints
 def view_monsters(): #this shows us what is currently inside the dictionary
     catalogue = "Existing NEOZONE monsters:"
     for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
@@ -94,8 +94,7 @@ def view_monsters(): #this shows us what is currently inside the dictionary
     eg.msgbox(catalogue, title="catalogue")
 
 
-
-
+#SEARCH CATALOUGE WORKS!!! BUT THE WAY IT PRINTS IS REALLY BAD WILL NEED TO IMPROVE IT
 def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
     monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalogue.keys())) 
     if monster:
@@ -105,7 +104,7 @@ def search_catalogue(): #in this def functions the user can search up certain mo
         eg.msgbox(monster_txt, title="NEOZONE monster details :")
 
 
-
+#fix it
 def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ")
