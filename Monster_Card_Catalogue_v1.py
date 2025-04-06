@@ -110,7 +110,17 @@ def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ")
     items = {} # we use an empty dictionary so we can put new things into it
-    item = input (f"Choose the strength for {i}").capitalize()
+    for i in range (1,4):
+        while True:
+            try: 
+                stat = float(input(f"Choose a {stat} for " , name ,":"))
+                break
+            except ValueError:
+                print("Invalid stat number. Please enter a numeric value")
+        items[name] = stat
+    catalouge [name] = items
+    print(f"New NEOMONSTER '{name} added.")
+
     
 
 
