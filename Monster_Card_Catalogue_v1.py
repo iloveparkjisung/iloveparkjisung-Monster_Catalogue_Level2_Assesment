@@ -1,6 +1,6 @@
 #this is our dictionary where the information the user wants to know, remove, add, find are in.
 catalogue = {
-    "Stoneling" : {
+    "Stoneling" : { #dictionary inside a dictionary to store more values so we could put in different keys.
         "Strength" : 7,
         "Speed" : 1,
         "Stealth" : 25,
@@ -62,6 +62,7 @@ catalogue = {
     } 
 }
 
+
 def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
     print ("=== NEOZONE: THE Monster Game Catalogue ===") #the welcoming message the user is receiving
     while True:
@@ -85,33 +86,36 @@ def main_catalogue(): #this will be our main interface where we can navigate and
 
 def view_monsters(): #this shows us what is currently inside the dictionary
     print("Here are the existing NEOZONE monster's names with stats and are available to be viewed.")
-    for monster_name, stats in catalogue.items():
-        print(f"\n\n{monster_name}'s Stats:")
-        for stats, stats_number in stats.items():
+    for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
+        print(f"\n\n{monster_name}'s Stats:") #while this would print it
+        for stats, stats_number in stats.items(): #this would print the stats
             print(f"{stats}: {stats_number}") 
 
 
-
-
-def search_catalogue():
+def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
     print("Here are the existing NEOZONE monster's names with stats and are available to be viewed.\n Which NEOZONE monster would you like to look at?\n")
     for name in catalogue:
         print(name) #prints out the names of available monsters the user can search for
-
-    ask =  input("\nWhich monster would you like to look at today? ").capitalize() 
+#this asks the user what type of NEOZONE minster they would like to see and capitalizes it so the program can figure out what to find
+    ask =  input("\nWhich monster would you like to look at today? ").capitalize()  
     if ask in catalogue:
-        print(f"\n{ask}'s Stats:")
-        for stats, stats_number in catalogue[ask].items():
+        print(f"\n{ask}'s Stats:") 
+        for stats, stats_number in catalogue[ask].items():#thsi prints the stats of th emonster the monster the user asked for
             print(f"{stats} : {stats_number}")
     else:
-        print("Combo not found")
+        print("Combo not found") #value error
 
 
 def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ")
-    items = {}
+    items = {} # we use an empty dictionary so we can put new things into it
+    item = input (f"Choose the strength for {i}").capitalize()
+    
+
+
 def delete_monster():
     print("hi")
+
 
 main_catalogue()
