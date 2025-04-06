@@ -119,13 +119,19 @@ def make_monster():
                 print("Invalid stat number. Please enter a numeric value")
         items[name] = stat
     catalouge [name] = items
-    print(f"New NEOMONSTER '{name} added.")
+    print(f"New NEOZONE monster '{name} added.")
 
     
 
 
 def delete_monster():
-    print("hi")
+    print("Delete a NEOZONE m")
+    name = input("Enter the name of the NEOZONE monster you would want to delete: ").capitalize()
+    if name in catalouge:
+        del catalouge[name]
+        print(f"NEOZONE monster '{name}' was deleted.")
+    else:
+        print("NEOZONE monster not found.")
 
 
 main_catalogue()
