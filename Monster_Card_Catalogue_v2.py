@@ -66,20 +66,20 @@ catalogue = {
 
 def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
     while True:
-        eg.buttonbox(
+        choice = eg.buttonbox(
             "=== NEOZONE: THE Monster Game Catalogue ===\nWhat would you like to do today?\n\nChoose one of the options to navigate!",#the welcoming message the user is receiving
             title = "THE Burger Shop",
             choices = ["Look at all the monsters >-<!", "Search for a MONSTER?! rawr :3", "Create the Monster of your dreams :O", "Delete a Monster :<", "Exit"]
         )
-        if choices == 'Look at all the monsters >-<!': #if the user chooses one of the options it will do the fuctions which has specific tasks assigned using the def function.
+        if choice == 'Look at all the monsters >-<!': #if the user chooses one of the options it will do the fuctions which has specific tasks assigned using the def function.
             view_monsters()
-        elif choices == 'Search for a MONSTER?! rawr :3':
+        elif choice == 'Search for a MONSTER?! rawr :3':
             search_catalogue()
-        elif choices == 'Create the Monster of your dreams :O':
+        elif choice == 'Create the Monster of your dreams :O':
             make_monster()
-        elif choices == 'Delete a Monster :<':
+        elif choice == 'Delete a Monster :<':
             delete_monster()
-        elif choices == 'Exit':
+        elif choice == 'Exit':
             eg.msgbox("Thank you for using NEOZONE: THE Monster Game Catalogue") 
             break #using break quits the code
         
