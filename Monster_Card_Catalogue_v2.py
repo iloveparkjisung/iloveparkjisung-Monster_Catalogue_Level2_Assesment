@@ -97,12 +97,10 @@ def view_monsters(): #this shows us what is currently inside the dictionary
 
 
 def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
-    monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalouge.keys())) 
-#this asks the user what type of NEOZONE minster they would like to see and capitalizes it so the program can figure out what to find
-    ask =  input("\nWhich monster would you like to look at today? ").capitalize()  
+    monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalogue.keys())) 
     if monster:
-        monster_txt += f"\n{ask}'s Stats:"
-        for stats, stats_number in catalogue[ask].items():#thsi prints the stats of th emonster the monster the user asked for
+        monster_txt = f"\n{monster}'s Stats:"
+        for stats, stats_number in catalogue[monster].items():#thsi prints the stats of th emonster the monster the user asked for
             monster_txt += f"{stats} : {stats_number}"
         eg.msgbox(monster_txt, title="NEOZONE monster details :")
 
