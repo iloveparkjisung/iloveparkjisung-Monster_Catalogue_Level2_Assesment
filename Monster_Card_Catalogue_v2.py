@@ -126,11 +126,9 @@ def make_monster():
 
 
 def delete_monster():
-    name = eg.choicebox("Delete a NEOZONE m")
-    name = input("Enter the name of the NEOZONE monster you would want to delete: ").capitalize()
+    name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalouge.keys()))
     if name in catalouge:
         del catalouge[name]
-        print(f"NEOZONE monster '{name}' was deleted.")
-    else:
-        print("NEOZONE monster not found.")
+        eg.masbox(f"NEOZONE monster '{name}' was deleted.", "SUCCESS")
+
 main_catalogue()
