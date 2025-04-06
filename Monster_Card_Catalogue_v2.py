@@ -65,24 +65,23 @@ catalogue = {
 
 
 def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
-    print ("=== NEOZONE: THE Monster Game Catalogue ===") #the welcoming message the user is receiving
     while True:
-        print("\nWelcome to NEOZONE: THE Monster Game Catalogue\n What would you like to do today?\n\n== Input the number to navigate ==") #this is the user's instruction
-        print("1 : View available NEOZONE monsters and stats!!\n2 : Look up a specific NEOZONE monsters\n3 : Make your own monster and stats\n4 : Delete a NEOZONE monster\n5 : QUIT ") #the options the user can input
-        choice = input("Enter your choice: ")
-        if choice == '1': #if the user chooses 1 - 4 it will do the fuctions which has specific tasks assigned using the def function.
+        eg.buttonbox(
+            "=== NEOZONE: THE Monster Game Catalogue ===\nWhat would you like to do today?\n\nChoose one of the options to navigate!",#the welcoming message the user is receiving
+            title = "THE Burger Shop",
+            choices = ["Look at all the monsters >-<!", "Search for a MONSTER?! rawr :3", "Create the Monster of your dreams :O", "Delete a Monster :<", "Exit"]
+        )
+        if choice == 'Look at all the monsters >-<!': #if the user chooses one of the options it will do the fuctions which has specific tasks assigned using the def function.
             view_monsters()
-        elif choice == '2':
+        elif choice == 'Search for a MONSTER?! rawr :3':
             search_catalogue()
-        elif choice == '3':
+        elif choice == 'Create the Monster of your dreams :O':
             make_monster()
-        elif choice == '4':
+        elif choice == 'Delete a Monster :<':
             delete_monster()
-        elif choice == '5':
-            print("Thank you for using NEOZONE: THE Monster Game Catalogue") 
+        elif choice == 'Exit':
+            eg.msgbox("Thank you for using NEOZONE: THE Monster Game Catalogue") 
             break #using break quits the code
-        else:
-            print("That's not right. Please input the right numbers, Try Again.") #this makes sure that the user does not input an invalid option
         
 
 def view_monsters(): #this shows us what is currently inside the dictionary
