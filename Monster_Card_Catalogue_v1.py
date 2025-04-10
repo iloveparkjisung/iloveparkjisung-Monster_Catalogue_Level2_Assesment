@@ -108,7 +108,7 @@ def search_catalogue(): #in this def functions the user can search up certain mo
 #i would need to fix it
 def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")
-    name = input("Enter the name of the NEOZONE monster: ")
+    name = input("Enter the name of the NEOZONE monster: ").capitalize()
     items = {} # we use an empty dictionary so we can put new things into it
     for i in range (1,4):
         while True:
@@ -118,7 +118,7 @@ def make_monster():
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
         items[name] = stat
-    catalouge [name] = items
+    catalogue [name] = items
     print(f"New NEOZONE monster '{name} added.")
 
     
@@ -127,8 +127,8 @@ def make_monster():
 def delete_monster():
     print("Delete a NEOZONE m")
     name = input("Enter the name of the NEOZONE monster you would want to delete: ").capitalize()
-    if name in catalouge:
-        del catalouge[name]
+    if name in catalogue:
+        del catalogue[name]
         print(f"NEOZONE monster '{name}' was deleted.")
     else:
         print("NEOZONE monster not found.")
