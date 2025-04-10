@@ -105,35 +105,31 @@ def search_catalogue(): #in this def functions the user can search up certain mo
     else:
         print("Combo not found") #value error
 
-def make_monster():#this function helps the user search up their desired monster
-    print("\nCreate new NEOZONE monsters and customize their stats!")
-    name = input("Enter the name of the NEOZONE monster: ").capitalize()
+def make_monster():
+    print("Create new NEOZONE monsters and customize their stats!")
+    name = input("Enter the name of the NEOZONE monster: ").strip().capitalize()  # Capitalize and strip whitespace
     if not name:
-        print("Monster name cannot be blank!!")
+        print("Monster name cannot be blank.")
         return
-    if name in catalogue: #we use these two so that the suer cannot enter an invalid monster!
-        print(f"A NEOZONE monster named '{name}' already exists in the catalogue!")
+
+    if name in catalogue:
+        print(f"A monster named '{name}' already exists in the catalogue.")
         return
-    items = {} # we use an empty dictionary so we can put new things into it
+
+    items = {} 
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
-            try: 
-                stat_num = input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ")
-                if stat_num is None:
-                    print("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
-                    return
-                try:
-                    stat_num = float(stat_num)
-                    items[stat_name] = stat_num
-                finally:
-                    if stat_num > 25:
-                        print("Please enter a number between 1 - 25!\nCanceling monster creation, returning to Main Menu.")
-                        return
-                items[stat_name] = stat_num
+        while True:
+            try:
+                stat_value = float(input(f"Enter the value for {stat_name} (numeric only): "))
+                items[stat_name] = stat_value  
                 break
             except ValueError:
-                print("Invalid stat number. Please enter a numeric value")
-            catalogue [name] = items
-            print(f"New NEOZONE monster '{name} added.")
+                print("Invalid input. Please enter a numeric value.")
+
+
+    catalogue[name] = items  # Add the new monster to the catalogue
+    print(f"New NEOZONE monster '{name}' added with stats: {items}")
+
 
     
 
