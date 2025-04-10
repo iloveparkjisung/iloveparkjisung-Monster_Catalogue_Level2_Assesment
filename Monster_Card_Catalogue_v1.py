@@ -100,13 +100,12 @@ def search_catalogue(): #in this def functions the user can search up certain mo
     ask =  input("\nWhich monster would you like to look at today? ").capitalize()  
     if ask in catalogue:
         print(f"\n{ask}'s Stats:") 
-        for stats, stats_number in catalogue[ask].items():#thsi prints the stats of th emonster the monster the user asked for
+        for stats, stats_number in catalogue[ask].items():#this prints the stats of th emonster the monster the user asked for
             print(f"{stats} : {stats_number}")
     else:
         print("Combo not found") #value error
 
-#i would need to fix it
-def make_monster():
+def make_monster():#this function helps the user search up their desired monster
     print("\nCreate new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ").capitalize()
     if not name:
