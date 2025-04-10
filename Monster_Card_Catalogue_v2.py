@@ -88,7 +88,7 @@ def make_monster():#this function helps the user search up their desired monster
                 eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
                 return
             try:
-                stat_num = float(stat_num)
+                stat_num = int(stat_num)
                 if stat_num > 25:
                     eg.msgbox(f"The value fot {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
                     return
@@ -97,7 +97,7 @@ def make_monster():#this function helps the user search up their desired monster
             except ValueError:
                 eg.msgbox("Invalid stat number. Please enter a numeric value", "ERROR")
 
-    catalogue [name, stats] = items 
+    catalogue [name] = items 
     eg.msgbox(f"New NEOZONE monster '{name} added.", "SUCCESS")
 
 def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
@@ -136,6 +136,6 @@ def delete_monster():
     name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalogue.keys()))
     if name in catalogue:
         del catalogue[name]
-        eg.masbox(f"NEOZONE monster '{name}' was deleted.", "SUCCESS")
+        eg.msgbox(f"NEOZONE monster '{name}' was deleted.", "SUCCESS")
 
 main_catalogue()
