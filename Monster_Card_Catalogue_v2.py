@@ -92,6 +92,9 @@ def make_monster():#this function helps the user search up their desired monster
                 if stat_num > 25:
                     eg.msgbox(f"The value for {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
                     return
+                elif stat_num <= 1:
+                    eg.msgbox(f"The value for {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
+                    return  
                 items[stat_name] = stat_num
                 break
             except ValueError:
