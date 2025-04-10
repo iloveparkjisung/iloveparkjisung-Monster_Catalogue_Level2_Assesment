@@ -104,19 +104,27 @@ def search_catalogue(): #in this def functions the user can search up certain mo
         eg.msgbox(monster_txt, title="NEOZONE monster details :")
 
 
-#fix it
-def make_monster():
-    print("Create new NEOZONE monsters and customize their stats!")
-    name = input("Enter the name of the NEOZONE monster: ")
+def make_monster():#this function helps the user search up their desired monster
+    print("\nCreate new NEOZONE monsters and customize their stats!")
+    name = input("Enter the name of the NEOZONE monster: ").capitalize()
+    if not name:
+        print("Monster name cannot be blank!!")
+        return
+    if name in catalogue: #we use these two so that the suer cannot enter an invalid monster!
+        print(f"A NEOZONE monster named '{name}' already exists in the catalogue!")
+        return
     items = {} # we use an empty dictionary so we can put new things into it
-    for i in range (1,4):
+    for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
-            try:
-                stat = float(input(f"Choose a {stat} for " , name ,":"))
+            try: 
+                stat_num = float(input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : "))
+                if stat_num > 25:
+                    print("Please enter a number between 1 - 25")
+                    break
+                items[stat_name] = stat_num
                 break
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
-        items[name] = stat
     catalogue [name] = items
     print(f"New NEOZONE monster '{name} added.")
 
