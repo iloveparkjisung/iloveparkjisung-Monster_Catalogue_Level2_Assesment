@@ -136,9 +136,6 @@ def make_monster():
             print(f"{stats} : {stats_number}")
 
 
-    
-
-
 def delete_monster():
     print("Delete a NEOZONE monster:")
     for name in catalogue:
