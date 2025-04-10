@@ -124,7 +124,7 @@ def make_monster():
                 if stat_value > 25:
                     print("Value is not between 1 - 25!\nCancelling monster creation. Returning to main menu.")
                     return
-                elif stat_num <= 1:
+                elif stat_value <= 1:
                     print(f"The value for {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
                     return  
                 items[stat_name] = stat_value 
