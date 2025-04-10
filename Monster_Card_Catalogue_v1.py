@@ -138,7 +138,9 @@ def make_monster():
 
 
 def delete_monster():
-    print("Delete a NEOZONE m")
+    print("Delete a NEOZONE monster:")
+    for name in catalogue:
+        print(name)
     name = input("Enter the name of the NEOZONE monster you would want to delete: ").capitalize()
     if name in catalogue:
         del catalogue[name]
