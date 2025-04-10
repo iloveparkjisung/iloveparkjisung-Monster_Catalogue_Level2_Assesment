@@ -119,9 +119,9 @@ def make_monster():#this function helps the user search up their desired monster
         while True:
             try: 
                 stat_num = float(input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : "))
-                if stat_num > 25:
+                while stat_num > 25:
                     print("Please enter a number between 1 - 25")
-                    break
+                    break 
                 items[stat_name] = stat_num
                 break
             except ValueError:

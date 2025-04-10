@@ -93,14 +93,14 @@ def view_monsters(): #this shows us what is currently inside the dictionary
     eg.msgbox(catalogue, title="catalogue")
 
 
-#SEARCH CATALOUGE WORKS!!! BUT THE WAY IT PRINTS IS REALLY BAD WILL NEED TO IMPROVE IT
+
 def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
     monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalogue.keys())) 
     if monster:
-        monster_txt = f"\n{monster}'s Stats:"
+        monster_txt = f"{monster}'s Stats:\n"
         for stats, stats_number in catalogue[monster].items():#thsi prints the stats of th emonster the monster the user asked for
-            monster_txt += f"{stats} : {stats_number}"
-        eg.msgbox(monster_txt, title="NEOZONE monster details :")
+            monster_txt += f"{stats} : {stats_number}\n"
+        eg.msgbox(monster_txt, title = f"NEOZONE monster details : {monster}")
 
 
 def make_monster():#this function helps the user search up their desired monster
@@ -120,10 +120,12 @@ def make_monster():#this function helps the user search up their desired monster
                 if stat_num is None:
                     eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
                     return
-                stat_num = float(stat_num)
+                try:
+                    stat_num = float(stat_num)
+                    items[stat_name] = stat_num
                 if stat_num > 25:
                     eg.msgbox("Please enter a number between 1 - 25")
-                    break
+                    return
                 items[stat_name] = stat_num
                 break
             except ValueError:
