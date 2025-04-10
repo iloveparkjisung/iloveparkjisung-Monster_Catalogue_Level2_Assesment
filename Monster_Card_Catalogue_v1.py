@@ -103,7 +103,7 @@ def search_catalogue(): #in this def functions the user can search up certain mo
         for stats, stats_number in catalogue[ask].items():#this prints the stats of th emonster the monster the user asked for
             print(f"{stats} : {stats_number}")
     else:
-        print("Combo not found") #value error
+        print("Monster not found") #value error
 
 def make_monster():
     print("Create new NEOZONE monsters and customize their stats!")

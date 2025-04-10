@@ -90,7 +90,7 @@ def make_monster():#this function helps the user search up their desired monster
             try:
                 stat_num = int(stat_num)
                 if stat_num > 25:
-                    eg.msgbox(f"The value fot {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
+                    eg.msgbox(f"The value for {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
                     return
                 items[stat_name] = stat_num
                 break
@@ -126,11 +126,6 @@ def search_catalogue(): #in this def functions the user can search up certain mo
         for stats, stats_number in catalogue[monster].items():#thsi prints the stats of th emonster the monster the user asked for
             monster_txt += f"{stats} : {stats_number}\n"
         eg.msgbox(monster_txt, title = f"NEOZONE monster details : {monster}")
-
-
-
-
-
 
 def delete_monster():
     name = eg.choicebox("Choose the NEOZONE monster you would want to delete: ", "Delete a NEOZONE monster" ,list(catalogue.keys()))
