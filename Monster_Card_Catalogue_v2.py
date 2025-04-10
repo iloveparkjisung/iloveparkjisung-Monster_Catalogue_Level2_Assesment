@@ -123,9 +123,10 @@ def make_monster():#this function helps the user search up their desired monster
                 try:
                     stat_num = float(stat_num)
                     items[stat_name] = stat_num
-                if stat_num > 25:
-                    eg.msgbox("Please enter a number between 1 - 25")
-                    return
+                finally:
+                    if stat_num > 25:
+                        eg.msgbox("Please enter a number between 1 - 25!\nCanceling monster creation, returning to Main Menu.")
+                        return
                 items[stat_name] = stat_num
                 break
             except ValueError:
