@@ -116,10 +116,10 @@ def make_monster():
         print(f"A NEOZONE monster named '{name}' already exists in the catalogue!")
         return
     items = {} # we use an empty dictionary so we can put new things into it
-    for i in range (1,4):
+    for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
             try: 
-                stat = float(input(f"Choose a {stat} for " , name ,":"))
+                stat_num = float(input(f"Choose a value {stat_name} for:"))
                 break
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
