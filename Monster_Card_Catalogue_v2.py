@@ -110,27 +110,25 @@ def make_monster():#this function helps the user search up their desired monster
         eg.msgbox("Monster name cannot be blank!! Returning to the Main Menu", "ERROR!")
         return
     if name in catalogue: #we use these two so that the suer cannot enter an invalid monster!
-        eg.msgbox(f"A NEOZONE monster named '{name}' already exists in the catalogue!\n34Monster creation canceled returning to menu!", "ERROR!")
+        eg.msgbox(f"A NEOZONE monster named '{name}' already exists in the catalogue!\nMonster creation canceled returning to menu!", "ERROR!")
         return
     items = {} # we use an empty dictionary so we can put new things into it
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
-            try: 
-                stat_num = eg.enterbox(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ", title = f"Set {stat_name}")
-                if stat_num is None:
-                    eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
+            stat_num = eg.enterbox(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ", title = f"Set {stat_name}")
+            if stat_num is None:
+                eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
+                return
+            try:
+                stat_num = float(stat_num)
+                if stat_num > 25:
+                    eg.msgbox(f"The value fot {stat_name} cannot exceed 25.\nCanceling monster creation, returning to Main Menu.", "ERROR")
                     return
-                try:
-                    stat_num = float(stat_num)
-                    items[stat_name] = stat_num
-                finally:
-                    if stat_num > 25:
-                        eg.msgbox("Please enter a number between 1 - 25!\nCanceling monster creation, returning to Main Menu.", "ERROR")
-                        return
                 items[stat_name] = stat_num
                 break
             except ValueError:
                 eg.msgbox("Invalid stat number. Please enter a numeric value", "ERROR")
+
     catalogue [name] = items
     eg.msgbox(f"New NEOZONE monster '{name} added.")
 
