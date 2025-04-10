@@ -63,45 +63,13 @@ catalogue = {
     } 
 }
 
-
-def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
-    while True:
-        choice = eg.buttonbox(
-            "=== NEOZONE: THE Monster Game Catalogue ===\nWhat would you like to do today?\n\nChoose one of the options to navigate!",#the welcoming message the user is receiving
-            title = "THE Burger Shop",
-            choices = ["Look at all the monsters >-<!", "Search for a MONSTER?! rawr :3", "Create the Monster of your dreams :O", "Delete a Monster :<", "Exit"]
-        )
-        if choice == 'Look at all the monsters >-<!': #if the user chooses one of the options it will do the fuctions which has specific tasks assigned using the def function.
-            view_monsters()
-        elif choice == 'Search for a MONSTER?! rawr :3':
-            search_catalogue()
-        elif choice == 'Create the Monster of your dreams :O':
-            make_monster()
-        elif choice == 'Delete a Monster :<':
-            delete_monster()
-        elif choice == 'Exit':
-            eg.msgbox("Thank you for using NEOZONE: THE Monster Game Catalogue") 
-            break #using break quits the code
-        
-
 def view_monsters(): #this shows us what is currently inside the dictionary
-    catalogue = "Existing NEOZONE monsters:"
-    for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
-        catalogue += f"\n\n{monster_name}'s Stats:" #while this would print it
-        for stats, stats_number in stats.items(): #this would print the stats
-            catalogue += f"{stats}: {stats_number}"
-    eg.msgbox(catalogue, title="catalogue")
-
-
-
-def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
-    monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalogue.keys())) 
-    if monster:
-        monster_txt = f"{monster}'s Stats:\n"
-        for stats, stats_number in catalogue[monster].items():#thsi prints the stats of th emonster the monster the user asked for
-            monster_txt += f"{stats} : {stats_number}\n"
-        eg.msgbox(monster_txt, title = f"NEOZONE monster details : {monster}")
-
+    catalogue_text = "Existing NEOZONE monsters:"
+    for monster_name, stat in catalogue.items(): #this would grab the information (name and stats)
+        catalogue_text += f"\n\n{monster_name}'s Stats:\n" #while this would print it
+        for stat, stat_number in stat.items(): #this would print the stats
+            catalogue_text += f"{stat}: {stat_number}\n"
+    eg.msgbox(catalogue_text, title="catalogue")
 
 def make_monster():#this function helps the user search up their desired monster
     eg.msgbox("Create new NEOZONE monsters and customize their stats!", "Create Monster")
@@ -129,8 +97,38 @@ def make_monster():#this function helps the user search up their desired monster
             except ValueError:
                 eg.msgbox("Invalid stat number. Please enter a numeric value", "ERROR")
 
-    catalogue [name] = items
-    eg.msgbox(f"New NEOZONE monster '{name} added.")
+    catalogue [name, stats] = items 
+    eg.msgbox(f"New NEOZONE monster '{name} added.", "SUCCESS")
+
+def main_catalogue(): #this will be our main interface where we can navigate and locate what we want to see
+    while True:
+        choice = eg.buttonbox(
+            "=== NEOZONE: THE Monster Game Catalogue ===\nWhat would you like to do today?\n\nChoose one of the options to navigate!",#the welcoming message the user is receiving
+            title = "THE Burger Shop",
+            choices = ["Look at all the monsters >-<!", "Search for a MONSTER?! rawr :3", "Create the Monster of your dreams :O", "Delete a Monster :<", "Exit"]
+        )
+        if choice == 'Look at all the monsters >-<!': #if the user chooses one of the options it will do the fuctions which has specific tasks assigned using the def function.
+            view_monsters()
+        elif choice == 'Search for a MONSTER?! rawr :3':
+            search_catalogue()
+        elif choice == 'Create the Monster of your dreams :O':
+            make_monster()
+        elif choice == 'Delete a Monster :<':
+            delete_monster()
+        elif choice == 'Exit':
+            eg.msgbox("Thank you for using NEOZONE: THE Monster Game Catalogue") 
+            break #using break quits the code
+
+def search_catalogue(): #in this def functions the user can search up certain monsters and see their stats
+    monster = eg.choicebox("View NEOZONE monster", "View monster", list(catalogue.keys())) 
+    if monster:
+        monster_txt = f"{monster}'s Stats:\n"
+        for stats, stats_number in catalogue[monster].items():#thsi prints the stats of th emonster the monster the user asked for
+            monster_txt += f"{stats} : {stats_number}\n"
+        eg.msgbox(monster_txt, title = f"NEOZONE monster details : {monster}")
+
+
+
 
 
 
