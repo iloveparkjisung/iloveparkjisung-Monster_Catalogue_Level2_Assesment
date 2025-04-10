@@ -105,21 +105,24 @@ def search_catalogue(): #in this def functions the user can search up certain mo
 
 
 def make_monster():#this function helps the user search up their desired monster
-    print("\nCreate new NEOZONE monsters and customize their stats!")
-    name = input("Enter the name of the NEOZONE monster: ").capitalize()
+    eg.msgbox("Create new NEOZONE monsters and customize their stats!", "Create Monster")
+    name = eg.enterbox("Enter the name of the NEOZONE monster: ", title = "Monster Name").capitalize()
     if not name:
-        print("Monster name cannot be blank!!")
+        eg.msgbox("Monster name cannot be blank!! Returning to the Main Menu", "ERROR!")
         return
     if name in catalogue: #we use these two so that the suer cannot enter an invalid monster!
-        print(f"A NEOZONE monster named '{name}' already exists in the catalogue!")
-        return
+        print(f"A NEOZONE monster named '{name}' already exists in the catalogue! Enter a different name!", "ERROR!")
+        break
     items = {} # we use an empty dictionary so we can put new things into it
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
             try: 
-                stat_num = float(input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : "))
+                stat_num = eg.enterbox(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ", title = f"Set {stat_name}")
+                if stat_num is None:
+                    eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
+
                 if stat_num > 25:
-                    print("Please enter a number between 1 - 25")
+                    eg.msgbox("Please enter a number between 1 - 25")
                     break
                 items[stat_name] = stat_num
                 break
