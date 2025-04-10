@@ -84,7 +84,6 @@ def main_catalogue(): #this will be our main interface where we can navigate and
             break #using break quits the code
         
 
-#fix the way it prints
 def view_monsters(): #this shows us what is currently inside the dictionary
     catalogue = "Existing NEOZONE monsters:"
     for monster_name, stats in catalogue.items(): #this would grab the information (name and stats)
@@ -111,8 +110,8 @@ def make_monster():#this function helps the user search up their desired monster
         eg.msgbox("Monster name cannot be blank!! Returning to the Main Menu", "ERROR!")
         return
     if name in catalogue: #we use these two so that the suer cannot enter an invalid monster!
-        print(f"A NEOZONE monster named '{name}' already exists in the catalogue! Enter a different name!", "ERROR!")
-        break
+        eg.msgbox(f"A NEOZONE monster named '{name}' already exists in the catalogue!\n34Monster creation canceled returning to menu!", "ERROR!")
+        return
     items = {} # we use an empty dictionary so we can put new things into it
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
@@ -120,8 +119,8 @@ def make_monster():#this function helps the user search up their desired monster
                 stat_num = eg.enterbox(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ", title = f"Set {stat_name}")
                 if stat_num is None:
                     eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
-                try:
-                    stat_num = float(stat_num)
+                    return
+                stat_num = float(stat_num)
                 if stat_num > 25:
                     eg.msgbox("Please enter a number between 1 - 25")
                     break
@@ -130,7 +129,7 @@ def make_monster():#this function helps the user search up their desired monster
             except ValueError:
                 eg.msgbox("Invalid stat number. Please enter a numeric value")
     catalogue [name] = items
-    print(f"New NEOZONE monster '{name} added.")
+    eg.msgbox(f"New NEOZONE monster '{name} added.")
 
 
 
