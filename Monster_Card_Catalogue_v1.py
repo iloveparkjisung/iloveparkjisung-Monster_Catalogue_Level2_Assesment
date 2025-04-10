@@ -120,8 +120,11 @@ def make_monster():
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
             try:
-                stat_value = float(input(f"Enter the value for {stat_name} (numeric only): "))
-                items[stat_name] = stat_value  
+                stat_value = float(input(f"Enter the value for {stat_name} (Please choose between 1 to 25): "))
+                if stat_value >= 25:
+                    print("Value is not between 1 - 25!\nCancelling monster creation. Returning to main menu.")
+                    return
+                items[stat_name] = stat_value 
                 break
             except ValueError:
                 print("Invalid input. Please enter a numeric value.")
