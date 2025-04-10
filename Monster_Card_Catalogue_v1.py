@@ -107,7 +107,7 @@ def search_catalogue(): #in this def functions the user can search up certain mo
 
 #i would need to fix it
 def make_monster():
-    print("Create new NEOZONE monsters and customize their stats!")
+    print("\nCreate new NEOZONE monsters and customize their stats!")
     name = input("Enter the name of the NEOZONE monster: ").capitalize()
     if not name:
         print("Monster name cannot be blank!!")
@@ -119,11 +119,14 @@ def make_monster():
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
             try: 
-                stat_num = float(input(f"Choose a value {stat_name} for:"))
+                stat_num = float(input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : "))
+                if stat_num > 25:
+                    print("Please enter a number between 1 - 25")
+                    break
+                items[stat_name] = stat_num
                 break
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
-        items[name] = stat
     catalogue [name] = items
     print(f"New NEOZONE monster '{name} added.")
 
