@@ -120,7 +120,7 @@ def make_monster():
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
         while True:
             try:
-                stat_value = float(input(f"Enter the value for {stat_name} (Please choose between 1 to 25): "))
+                stat_value = int(input(f"Enter the value for {stat_name} (Please choose between 1 to 25): "))
                 if stat_value > 25:
                     print("Value is not between 1 - 25!\nCancelling monster creation. Returning to main menu.")
                     return
@@ -131,7 +131,9 @@ def make_monster():
 
 
     catalogue[name] = items  # Add the new monster to the catalogue
-    print(f"New NEOZONE monster '{name}' added with stats: {items}")
+    print(f"New NEOZONE monster '{name}' added with stats:")
+    for stats, stats_number in catalogue[name].items():#this prints the stats of th emonster the monster the user asked for
+            print(f"{stats} : {stats_number}")
 
 
     
