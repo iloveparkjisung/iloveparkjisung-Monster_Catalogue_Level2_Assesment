@@ -120,14 +120,15 @@ def make_monster():#this function helps the user search up their desired monster
                 stat_num = eg.enterbox(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ", title = f"Set {stat_name}")
                 if stat_num is None:
                     eg.msgbox("User entered a blank space. Monster creation canceled.\nReturning to the menu", "ERROR")
-
+                try:
+                    stat_num = float(stat_num)
                 if stat_num > 25:
                     eg.msgbox("Please enter a number between 1 - 25")
                     break
                 items[stat_name] = stat_num
                 break
             except ValueError:
-                print("Invalid stat number. Please enter a numeric value")
+                eg.msgbox("Invalid stat number. Please enter a numeric value")
     catalogue [name] = items
     print(f"New NEOZONE monster '{name} added.")
 
