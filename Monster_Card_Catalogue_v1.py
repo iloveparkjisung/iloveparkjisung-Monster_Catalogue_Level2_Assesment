@@ -116,7 +116,6 @@ def make_monster():#this function helps the user search up their desired monster
         return
     items = {} # we use an empty dictionary so we can put new things into it
     for stat_name in ["Strength", "Speed", "Stealth", "Cunning"]:
-                while True:
             try: 
                 stat_num = input(f"Choose a value for {stat_name}! (Please enter a number between 1 - 25) : ")
                 if stat_num is None:
@@ -133,8 +132,8 @@ def make_monster():#this function helps the user search up their desired monster
                 break
             except ValueError:
                 print("Invalid stat number. Please enter a numeric value")
-    catalogue [name] = items
-    print(f"New NEOZONE monster '{name} added.")
+            catalogue [name] = items
+            print(f"New NEOZONE monster '{name} added.")
 
     
 
